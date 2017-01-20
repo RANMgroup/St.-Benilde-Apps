@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.st.benilde.group"  version = "1.0.0">
+
+	<name>St. Benilde CFGC info</name>
+    <description>St. benilde info. Created by R.A.M.N,Olongapo City, Iba, Zambales.</description>
+    <author>Primo</author>
+	
+	<gap:platforms>
+		<gap:platform name="android" />
+	</gap:platforms>
+	
+	<icon src="icon.png" gap:role="default" />
+		
+	<feature name="http://api.phonegap.com/1.0/file"/>
+	
+	<gap:plugin name="cordova-plugin-file" source="npm" />
+	<gap:plugin name="cordova-plugin-media" source="npm" />
+		
+	<preference name="phonegap-version" value="cli-6.3.0" />
+	<preference name="fullscreen" value="true" />
+	
+	<preference name="android-minSdkVersion" value="16" />
+</widget>

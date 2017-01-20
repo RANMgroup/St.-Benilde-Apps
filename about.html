@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Meny - A three dimensional and space efficient menu concept</title>
+
+		<meta name="description" content="A three dimensional and space efficient menu created with JavaScript and CSS 3.">
+		<meta name="author" content="">
+
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" >
+
+		<link href='fonts/css.css' rel='stylesheet' type='text/css'>
+
+		<link rel="stylesheet" href="css1/demo.css">
+		<style>
+		body {margin:25px;}
+
+div.polaroid {
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+div.container {
+color: black;
+  text-align: center;
+  padding: 20px 20px;
+}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="meny">
+			<h2><a href="menu.html">MENU</a></h2>
+			<ul>
+				<li><a href="courses.html">Courses Offered</a></li>
+				<li><a href="vision-mission.html">Vision-Mission-Core</a></li>
+				<li><a href="requirements.html">Requirements for Enrollment (Contact)</a></li>
+				<li><a href="about.html">About</a></li>
+				
+		</div>
+
+		<div class="meny-arrow"></div>
+
+		<div class="contents">
+			<!-- <article> -->
+				
+				<div class="polaroid">
+  <img src="alben.jpg" alt="Norway" style="width:100%">
+  <div class="container">
+    <p >Name:<span style="font-weight:bold">Al benedict Francia</p></span>
+	<strong><p> BSIT-IV </p></strong>
+	<strong><p> Leader </p></strong>
+  </div>
+</div>
+
+<div class="polaroid">
+  <img src="mel.jpg" alt="Norway" style="width:100%">
+  <div class="container">
+    <p >Name:<span style="font-weight:bold">Richmel A. Sta. Maria</p></span>
+	<strong><p> BSIT-III </p></strong>
+	<strong><p> Programmer </p></strong>
+	
+  </div>
+</div>
+
+<div class="polaroid">
+  <img src="nikky.jpg" alt="Norway" style="width:100%">
+  <div class="container">
+    <p >Name:<span style="font-weight:bold">Nikky Joshua Ringo</p></span>
+	<strong><p> BSIT-IV </p></strong>
+	<strong><p> Analysis </p></strong>
+  </div>
+</div>
+
+<div class="polaroid">
+  <img src="mark.jpg" alt="Norway" style="width:100%">
+  <div class="container">
+    <p >Name:<span style="font-weight:bold">Marc Guiang</p></span>
+	<strong><p> BSIT-I </p></strong>
+	<strong><p> Code Researcher </p></strong>
+  </div>
+</div>
+				
+			<!-- </article> -->
+
+		</div>
+
+		<script src="js1/meny.js"></script>
+		<script>
+			// Create an instance of Meny
+			var meny = Meny.create({
+				// The element that will be animated in from off screen
+				menuElement: document.querySelector( '.meny' ),
+
+				// The contents that gets pushed aside while Meny is active
+				contentsElement: document.querySelector( '.contents' ),
+
+				// [optional] The alignment of the menu (top/right/bottom/left)
+				position: Meny.getQuery().p || 'left',
+
+				// [optional] The height of the menu (when using top/bottom position)
+				height: 200,
+
+				// [optional] The width of the menu (when using left/right position)
+				width: 260,
+
+				// [optional] Distance from mouse (in pixels) when menu should open
+				threshold: 40,
+
+				// [optional] Use mouse movement to automatically open/close
+				mouse: true,
+
+				// [optional] Use touch swipe events to open/close
+				touch: true
+			});
+
+			// API Methods:
+			// meny.open();
+			// meny.close();
+			// meny.isOpen();
+
+			// Events:
+			// meny.addEventListener( 'open', function(){ console.log( 'open' ); } );
+			// meny.addEventListener( 'close', function(){ console.log( 'close' ); } );
+
+			// Embed an iframe if a URL is passed in
+			if( Meny.getQuery().u && Meny.getQuery().u.match( /^http/gi ) ) {
+				var contents = document.querySelector( '.contents' );
+				contents.style.padding = '0px';
+				contents.innerHTML = '<div class="cover"></div><iframe src="'+ Meny.getQuery().u +'" style="width: 100%; height: 100%; border: 0; position: absolute;"></iframe>';
+			}
+		</script>
+
+	</body>
+</html>

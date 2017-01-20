@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Meny - A three dimensional and space efficient menu concept</title>
+
+		<meta name="description" content="A three dimensional and space efficient menu created with JavaScript and CSS 3.">
+		<meta name="author" content="">
+
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" >
+
+		<link href='fonts/css.css' rel='stylesheet' type='text/css'>
+
+		<link rel="stylesheet" href="css1/demo.css">
+	</head>
+
+	<body>
+
+		<div class="meny">
+			<h2><a href="menu.html">MENU</a></h2>
+			<ul>
+				<li><a href="courses.html">Courses Offered</a></li>
+				<li><a href="vision-mission.html">Vision-Mission-Core</a></li>
+				<li><a href="requirements.html">Requirements for Enrollment (Contact)</a></li>
+				<li><a href="about.html">About</a></li>
+				
+		</div>
+
+		<div class="meny-arrow"></div>
+
+		<div class="contents">
+			<article>
+				
+				<div>
+	<h1>Requirements for Enrollment:</h1>
+	<div>
+	<h4 style="color: green;">FRESHMEN:</h4>
+	<ul>
+		<li>Form 138 & Form 137</li>
+		<li>Certificate of Good Moral Character</li>
+		<li>Photocopy of Birth Certificate</li>
+		<li>2 pcs. of 2x2 ID Pictures</li>
+		<li>NCAE Result (if Available)</li>
+	</div>
+	<div>
+	<h4 style="color: green;">TRANSFERIES</h4>
+	<ul>
+		<li>Official Transcript of Records</li>
+		<li>Certificate of Honorable Dismissal/Transfer Credential Certificate</li>
+		<li>Photocopy of Birth Certificate</li>
+		<li>2 pcs. 2x2 ID Pictures</li>
+		<li>NCAE Result (if Available)</li>
+				</div>
+				</div>
+			</article>
+
+		</div>
+
+		<script src="js1/meny.js"></script>
+		<script>
+			// Create an instance of Meny
+			var meny = Meny.create({
+				// The element that will be animated in from off screen
+				menuElement: document.querySelector( '.meny' ),
+
+				// The contents that gets pushed aside while Meny is active
+				contentsElement: document.querySelector( '.contents' ),
+
+				// [optional] The alignment of the menu (top/right/bottom/left)
+				position: Meny.getQuery().p || 'left',
+
+				// [optional] The height of the menu (when using top/bottom position)
+				height: 200,
+
+				// [optional] The width of the menu (when using left/right position)
+				width: 260,
+
+				// [optional] Distance from mouse (in pixels) when menu should open
+				threshold: 40,
+
+				// [optional] Use mouse movement to automatically open/close
+				mouse: true,
+
+				// [optional] Use touch swipe events to open/close
+				touch: true
+			});
+
+			// API Methods:
+			// meny.open();
+			// meny.close();
+			// meny.isOpen();
+
+			// Events:
+			// meny.addEventListener( 'open', function(){ console.log( 'open' ); } );
+			// meny.addEventListener( 'close', function(){ console.log( 'close' ); } );
+
+			// Embed an iframe if a URL is passed in
+			if( Meny.getQuery().u && Meny.getQuery().u.match( /^http/gi ) ) {
+				var contents = document.querySelector( '.contents' );
+				contents.style.padding = '0px';
+				contents.innerHTML = '<div class="cover"></div><iframe src="'+ Meny.getQuery().u +'" style="width: 100%; height: 100%; border: 0; position: absolute;"></iframe>';
+			}
+		</script>
+
+	</body>
+</html>
